@@ -1,1 +1,12 @@
 # Traders-Lounge
+Traders lounge is a website that aims to be a standout and accurate guidance for all kinds of investors in the country.The stock market is highly affected by political situation within a country and financial condition of companies. This is the reason our proposed methodology consists of both solutions i.e. Machine learning techniques to analyze financial condition of company and sentiment analysis to analyze political situation within a country.
+        Experienced investors know the rise and fall of stock market, their investment largely depends on their past experience and they get support from stock market to invest or withdraw their investments from it. Inexperienced or common investors are not aware of such techniques. By making our proposed system intelligent with machine learning techniques for stock data and sentiment analysis of tweets, we aim to provide a helpful platform for all kind of investors.
+        
+The project makes use of cutting-edge 21st century technology to ensure that whatever it claims is backed-up by correct information and error-free backend/front-end processing. To name them, Python, Django and Machine Learning technologies such as TensorFlow and Keras have been used to ensure good-handling and processing of data.
+The major modules of the project include extracting tweets, sentiment analysis of tweets, trading decision generated from our proposed solution using LSTM and SVR, integration of both (sentiment analysis and machine learning) and maintenance of our website.
+
+# PROPOSED SOLUTION
+
+“Traders lounge” is a website that aims to assist investors about taking decisions for stocks of a specific company. By using Machine learning techniques and sentiment analysis along with Python as main programming language, our system ensures proper assistance for its users.
+The back-end of project operates on historical data of stocks that was available publicly and tweets of companies that were scrapped. The historical data and tweets are fed into model after some preprocessing and then trading decisions are generated using some trading rules. The front-end of website allows user to subscribe for a specific company. Registered and subscribed user can view trends of stocks in the form of graphs, read news and tweets of that specific company and view predicted decisions too. 
+The project focuses on three big companies of US Stock Market namely Apple (aapl), Microsoft (msft) and Amazon (amzn) by predicting their stock prices and trading decisions to maximize the profit for investors.
