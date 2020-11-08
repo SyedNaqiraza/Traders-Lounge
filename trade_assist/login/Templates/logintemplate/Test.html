@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+{% load static %}
+{% load crispy_forms_tags %}
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trade Assist Login Form</title>
+
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+<link rel="stylesheet" href="{% static 'logintemplate/css/signuplogin/test.css' %}">
+<link rel="stylesheet" href="{% static 'logintemplate/css/signuplogin/Style.css' %}">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="login-wrap">
+	<div class="login-html" style="padding-top: 10px">
+<div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="#">Sign In</a>
+            </small>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>

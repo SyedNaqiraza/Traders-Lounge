@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reponsive HTML Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+<header class="main__header">
+  
+  <div class="container">
+    
+
+    <nav class="navbar navbar-default" role="navigation"> 
+      <!-- Brand and toggle get grouped for better mobile display --> 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-header">
+        <h1 class="navbar-brand"><a href="index.html">Endent</a></h1>
+        <a href="#" onClick="javascript.void()" class="submenu">Menus</a> </div>
+      <div class="menuBar">
+        <ul class="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li class="dropdown"><a href="#">Pages</a>
+            <ul>
+              <li><a href="index_fixed.html">Home / Fixed</a></li>
+              <li><a href="index_with_blog.html">Home + Blog</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="typography.html">Typography</a></li>
+              <li><a href="shortcodes.html">Shortcodes</a></li>
+              <li><a href="store.html">Web Store</a></li>
+              <li><a href="blog.html">Blog & News</a></li>
+              <li><a href="tables.html">Tables</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="left_sidebar.html">left sidebar</a></li>
+          <li><a href="right_sidebar.html">right sidebar</a></li>
+          <li><a href="full_width.html">full page</a></li>
+          <li><a href="contact.html">contact us</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse --> 
+    </nav>
+
+
+  </div>
+</header>
+<section class="slider">
+  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="item active"> <img data-src="{% static  'pictures/images/slider/banner.jpg' %}" src="{% static  'pictures/images/slider/banner.jpg' %}">
+        <div class="container">
+          <div class="carousel-caption">
+            <p></p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+
+            <p><a class="btn btn-default btn-lg" href="{% url 'login' %}" role="button">get started</a></p>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    </a> 
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      </a> 
+    </div>
+</section>
+<!--end of slider section-->
+<section class="main__middle__container homepage">
+  <div class="row text-center headings no-margin nothing">
+    
+    <div class="container">
+      <h1 class="page_title">Beginner investors use Virtual Tarder to gain maximum profit</h1>
+      <p>Here at Virtual Trader we handles all the stuff related to Trading,if you are a beginner in Trading you come to the right place, lets our team assist you in this beautiful journey of Trading</p>
+    </div>
+  
+  </div>
+  <div class="row three__blocks no_padding no-margin text-center">
+    <div class="container">
+      <h2 class="page__title text-center"><span>Services We Provide</span></h2>
+      <div class="seper"></div>
+      <div class="col-md-4">
+        <h3><a href="#">Numerical Analysis of Stocks</a>
+          <div class="seper"></div></h3>
+        <img src="{% static  'pictures/images/content__images/analysis-banner.jpg' %}" alt="image" class="img-responsive img-rounded">
+        <p>Through effecient Algorithms of Machine Learning we analyze the past numerical data of you preffered stock</p>
+      </div>
+      <div class="col-md-4 middle">
+        <h3><a href="#">Sentimental Analysis of Tweets</a>
+          <div class="seper"></div></h3>
+        <img src=" {% static  'pictures/images/content__images/sentiment-banner.jpg' %}" alt="image" class="img-responsive img-rounded">
+        <p>Confidence of investor plays very important role in the price of a particular stock, we apply techniques to judge the confidence of investor through the tweets he made </p>
+      </div>
+      <div class="col-md-4">
+        <h3><a href="#">Authentic predictions of stock prices</a>
+          <div class="seper"></div></h3>
+        <img src="{% static  'pictures/images/content__images/predict-banner.jpeg' %}" alt="image" class="img-responsive img-rounded">
+        <p>By Combining Semantics Analysis and Histroical Data Analysis and feed them together in a state of the art Machine Learning Model we gives you the final percentage of weather to Buy,Sell or Hold a stock</p>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <div class="row grey-info-block text-center">
+    <div class="container">
+
+      <h2 >Who we Are </h2>
+      <p class="small-paragraph">Students of National University of Science and Technology</p>
+      <div class="col-md-12"> 
+
+        <img src="{% static  'pictures/images/content__images/about-banner.jpg' %}" alt="pic" class="img-rounded img-responsive" id="picture">
+      
+        <h3>A bunch of entrepreneurs helping people make smart investment decisions!</h3>
+        <div class="seper"></div>
+        <p>We’ll say it upfront. This isn’t the most glamorous industry! But that doesn’t shake our spirits. We have sound reasons to show up each day. We come from a place where millions of families are struggling to grow their savings and secure better futures. A place where affordable access to quality insights and education can save a family’s future. It can be the difference between choosing a profitable investment or losing your life’s hard earned savings.</p>
+      </div>
+     
+    </div>
+  </div>
+  
+</section>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>About</h3>
+        <p>We strive to deliver a level of service that exceeds the expectations of our customers. <br />
+          <br />
+          If you have any questions about our products or services, please do not hesitate to contact us. We have friendly, knowledgeable representatives available seven days a week to assist you.</p>
+      </div>
+      <div class="col-md-3">
+        <h3>Tweets</h3>
+        <p><span>Tweet</span> <a href="#">@You</a><br />
+          Etiam egestas, ipsum posuere accumsan sollicitudin, nulla mauris volutpat sem, sit amet rutrum risus. </p>
+        <p><span>Tweet</span> <a href="#">@You</a><br />
+          Quisque porta tellus vitae adipiscing molestie. Mauris et lacus blandit, malesuada.</p>
+      </div>
+      <div class="col-md-3">
+        <h3>Mailing list</h3>
+        <p>Subscribe to our mailing list for offers, news updates and more!</p>
+        <br />
+        <form action="#" method="post" class="form-inline" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">your email</label>
+            <input type="email" class="form-control form-control-lg" id="exampleInputEmail2" placeholder="your email">
+          </div>
+          <button type="submit" class="btn btn-info btn-md">subscribe</button>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <h3>Social</h3>
+        <p>Room no 111 Ghazali I<br />
+          Nust Islamabad <br />
+          Pakistan<br />
+          <br />
+          Phone: (+92) 345-4441973<br />
+          <br />
+          <br />
+        </p>
+        <div class="social__icons"> <a href="#" class="socialicon socialicon-twitter"></a> <a href="#" class="socialicon socialicon-facebook"></a> <a href="#" class="socialicon socialicon-google"></a> <a href="#" class="socialicon socialicon-mail"></a> </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<p class="text-center copyright">&copy; Copyright TradeAssist Company. All Rights Reserved.</p>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.min.js"></script> 
+<script type="text/javascript">
+
+$('.carousel').carousel({
+  interval: 3500, // in milliseconds
+  pause: 'none' // set to 'true' to pause slider on mouse hover
+})
+
+        </script> 
+<script type="text/javascript">
+$( "a.submenu" ).click(function() {
+$( ".menuBar" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+});
+$( "ul li.dropdown a" ).click(function() {
+$( "ul li.dropdown ul" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+$('ul li.dropdown').toggleClass('current');
+});
+</script>
+</body>
+</html>

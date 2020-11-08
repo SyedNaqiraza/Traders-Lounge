@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+<title>Virtual Trader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!-- Bootstrap -->
+<link href="{% static  'logintemplate/css/bootstrap.min.css' %} " rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<link href="{% static 'logintemplate/css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<header class="main__header">
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-header">
+        <h1 class="navbar-brand"><a href="index.html">Virtual Trader</a></h1>
+
+
+        <a href="#" onClick="javascript.void()" class="submenu">Menus</a> </div>
+
+
+
+
+
+      <div class="menuBar">
+        <ul class="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="#">News</a>
+
+          </li>
+          <li class="active"><a href="left_sidebar.html">Heat Map</a></li>
+          <li class="active"><a href="{% url 'logout' %}">Logout</a></li>
+          <li class="active"><a href="contact.html">contact us</a></li>
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper">
+
+<nav id="sidebar" style="padding-top: 92px;">
+
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Comapnies</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                       {% for k in users %}
+                        <li>
+                            <a href="#">{{ k.company_id }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+
+{% if sub %}
+<div class="content" style="padding-top:192px;padding-left:100px">
+<h3> Initially we are providing our analysis for only one Company</h3>
+    <br>
+    <br>
+        <form action="{% url 'subs' %}" method="POST" >
+            {% csrf_token %}
+            <label class="radio-inline">
+      <input type="radio" name="option" value="Apple"><h4 >Apple</h4>
+    </label>
+            <br>
+            <br>
+            <button class="btn btn-outline-info" type="submit" style="float:right">Subscribe</button>
+
+        </form>
+
+    </div>
+{% elif users %}
+
+    <div id="content" style="padding-top: 92px;">
+
+                <nav class="navbarrr navbarrr-expand-lg navbarrr-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="navbarrr-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+
+
+
+                    </div>
+                </nav>
+
+        <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Quotes</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+      {
+      "symbols": [
+        {
+          "description": "Apple",
+          "proName": "NASDAQ:AAPL"
+        },
+        {
+          "description": "Microsoft",
+          "proName": "NASDAQ:MSFT"
+        },
+        {
+          "description": "Sales Force",
+          "proName": "NYSE:CRM"
+        },
+        {
+          "description": "Amazon",
+          "proName": "NASDAQ:AMZN"
+        },
+        {
+          "description": "Shopify",
+          "proName": "NYSE:SHOP"
+        }
+      ],
+      "locale": "en"
+    }
+      </script>
+    </div>
+    <h3>Apple Candle Chart</h3></b>
+        <div class="tradingview-widget-container">
+      <div id="tradingview_36151"style="height:550px"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL chart</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.widget(
+      {
+      "autosize":true,
+      "symbol": "NASDAQ:AAPL",
+      "interval": "D",
+      "timezone": "Etc/UTC",
+      "theme": "Light",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#f1f3f6",
+      "enable_publishing": false,
+      "allow_symbol_change": true,
+      "news": [
+        "headlines"
+      ],
+      "container_id": "tradingview_36151"
+    }
+      );
+      </script>
+    </div>
+
+        <b><h3>Market Updates</h3></b>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Market Data</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+      {
+      "width": "100%",
+      "height": "450",
+      "symbolsGroups": [
+        {
+          "originalName": "Indices",
+          "symbols": [
+            {
+              "displayName": "S&P 500",
+              "name": "INDEX:SPX"
+            },
+            {
+              "displayName": "Nasdaq 100",
+              "name": "INDEX:IUXX"
+            },
+            {
+              "displayName": "Dow 30",
+              "name": "INDEX:DOWI"
+            },
+            {
+              "displayName": "Nikkei 225",
+              "name": "INDEX:NKY"
+            },
+            {
+              "displayName": "DAX Index",
+              "name": "INDEX:DAX"
+            },
+            {
+              "displayName": "FTSE 100",
+              "name": "OANDA:UK100GBP"
+            }
+          ],
+          "name": "Indices"
+        },
+        {
+          "originalName": "Commodities",
+          "symbols": [
+            {
+              "displayName": "E-Mini S&P",
+              "name": "CME_MINI:ES1!"
+            },
+            {
+              "displayName": "Euro",
+              "name": "CME:E61!"
+            },
+            {
+              "displayName": "Gold",
+              "name": "COMEX:GC1!"
+            },
+            {
+              "displayName": "Crude Oil",
+              "name": "NYMEX:CL1!"
+            },
+            {
+              "displayName": "Natural Gas",
+              "name": "NYMEX:NG1!"
+            },
+            {
+              "displayName": "Corn",
+              "name": "CBOT:ZC1!"
+            }
+          ],
+          "name": "Commodities"
+        },
+        {
+          "originalName": "Bonds",
+          "symbols": [
+            {
+              "displayName": "Eurodollar",
+              "name": "CME:GE1!"
+            },
+            {
+              "displayName": "T-Bond",
+              "name": "CBOT:ZB1!"
+            },
+            {
+              "displayName": "Ultra T-Bond",
+              "name": "CBOT:UD1!"
+            },
+            {
+              "displayName": "Euro Bund",
+              "name": "EUREX:GG1!"
+            },
+            {
+              "displayName": "Euro BTP",
+              "name": "EUREX:II1!"
+            },
+            {
+              "displayName": "Euro BOBL",
+              "name": "EUREX:HR1!"
+            }
+          ],
+          "name": "Bonds"
+        },
+        {
+          "originalName": "Forex",
+          "symbols": [
+            {
+              "name": "FX:EURUSD"
+            },
+            {
+              "name": "FX:GBPUSD"
+            },
+            {
+              "name": "FX:USDJPY"
+            },
+            {
+              "name": "FX:USDCHF"
+            },
+            {
+              "name": "FX:AUDUSD"
+            },
+            {
+              "name": "FX:USDCAD"
+            }
+          ],
+          "name": "Forex"
+        }
+      ],
+      "locale": "en"
+    }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+
+
+
+<a class="twitter-timeline" data-height="400" href="https://twitter.com/YahooFinance?ref_src=twsrc%5Etfw">Tweets by YahooFinance</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+  {% else %}
+
+     <div style="padding-top: 292px;padding-left: 62px;">
+		<div >
+			<div >
+
+				<h2>You did'nt subscribed to any company yet</h2>
+			</div>
+			<a href="{% url 'subs' %}" style="float:right" type="button" class="btn btn-primary">Subscribe</a>
+		</div>
+	</div>
+
+  {% endif %}
+
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="{% static 'logintemplate/js/jquery.min.js' %}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'logintemplate/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript">
+
+$('.carousel').carousel({
+  interval: 3500, // in milliseconds
+  pause: 'none' // set to 'true' to pause slider on mouse hover
+})
+
+        </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+<script type="text/javascript">
+$( "a.submenu" ).click(function() {
+$( ".menuBar" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+});
+$( "ul li.dropdown a" ).click(function() {
+$( "ul li.dropdown ul" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+$('ul li.dropdown').toggleClass('current');
+});
+</script>
+</body>
+</html>

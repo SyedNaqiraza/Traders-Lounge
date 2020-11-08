@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+<title>Reponsive HTML Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!-- Bootstrap -->
+<link href="{% static  'logintemplate/css/bootstrap.min.css' %} " rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<link href="{% static 'logintemplate/css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<header class="main__header">
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-header">
+        <h1 class="navbar-brand"><a href="index.html">Virtual Trader</a></h1>
+
+
+        <a href="#" onClick="javascript.void()" class="submenu">Menus</a> </div>
+
+
+
+
+
+      <div class="menuBar">
+        <ul class="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="{% url 'method' %}">Our Methodology</a>
+
+          </li>
+          <li class="active"><a href="{% url 'login' %}">Login</a></li>
+          <li class="active"><a href="contact.html">contact us</a></li>
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</header>
+
+<div class="col-sm-12 col-md-12" style="padding-top:120px;">
+<div class="row" >
+    <h2 style="text-align:center">Our Methodology</h2>
+    <h4 style="text-align:center"> We incorporate Historical Data along with Sentiments taken from the Tweets of general public and feed that data into a Predictive Model </h4>
+   <br>
+    <ul>
+        <li><h4>Sentiment Analysis</h4></li>
+    </ul>
+    <p style="padding-left:100px"> <b> We extract tweets from twitter on regular basis for Sentiment Analysis, tweets are being fetched
+    from Twitter through web scrapping, Preprocess that data through NLTK Python library and through TextBlob Library each tweet is
+    is gone through the process of sentiment analysis, after that each tweet is scored between 0-1 </b> </p>
+<div style="margin: auto; padding-left:200px">
+    <table class=" table" style=" width:70%">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tweets</th>
+      <th scope="col">Sentiment Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Sometimes I wonder if  is still innovating enough  but
+          then I see photos like this from   I think my APPL stock will do fine </td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Apple promotes health apps that work </td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Apple Plans to Expand in China as iPhone Sales Slow apple appl iphone market stocks tech </td>
+      <td>Negative</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+    <ul>
+        <li><h4>Numerical Data Analysis</h4></li>
+
+    </ul>
+    <p style="padding-left:100px"> <b> This is the second part of our project in which we analyze the past trend of company, we
+    extract different indicators which are used by financial analysts from the stocks opening and closing price, mutate these
+    indicators with sentiment score of Tweets and feed that data into state of the art Machine Learning models </b> </p>
+    <br>
+    <div  class="col-sm-12 col-md-12" style="width:70%;padding-left:100px">
+        <canvas id="line-chart" width="800" height="450"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script type="text/javascript">
+
+new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ['26-March-2019','27-March-2019','28-March-2019','29-March-2019','1-April-2019','2-April-2019','3-April-2019','4-April-2019','5-April-2019','8-April-2019'],
+    datasets: [{
+        data: [187.00,189.57,189.80,190.10,194.25,195.00,196.00,194.89,196.69,201.09],
+        label: "Predicted Values",
+        borderColor: "#3e95cd",
+        fill: false
+      }, {
+        data: [186.79,188.47,188.72,189.95,191.24,194.02,195.35,195.69,197.00,200.10],
+        label: "Orignal Values",
+        borderColor: "#8e5ea2",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Apple Stock Price Prediction'
+    }
+  }
+});
+
+</script>
+
+    </div >
+    <h3 style="float:left;padding-left:40px"> We are happy to anounce that our predictive models has 97% accuracy on Apple Stocks Data</h3>
+  </div>
+
+
+</div>
+
+</body>
